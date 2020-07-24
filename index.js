@@ -3,6 +3,7 @@ const saveData = (arr) => {
     localStorage.setItem('book-library-data', JSON.stringify(arr));
   };
 
+
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -37,22 +38,29 @@ function addBookToLibrary() {
 
    function render(){
        let output;
-       JSON.parse(localStorage["book-library-data"]).forEach(element => {
+       for(let i = 0; i < myLibrary.length; i++ ){
             output += `
             <div class="card ml-3 mb-3" style="width: 18rem;">
                 <div class="card-body">
-                <h5 class="card-title">Title: ${element.title}</h5>
-                <p class="card-text">Author: ${element.author}</p>
-                <p class="card-text">Pages: ${element.pages}</p>
-                <p class="card-text">Read: ${element.read}</p>
+                <h5 class="card-title">Title: ${myLibrary[i].title}</h5>
+                <p class="card-text">Author: ${myLibrary[i].author}</p>
+                <p class="card-text">Pages: ${myLibrary[i].pages}</p>
+                <p class="card-text">Read: ${myLibrary[i].read}</p>
+                <p class="card-text">Index: ${i}</p>
                 <a href="#" class="btnEdit btn btn-secondary" data-id="">Edit</a>
-                <a href="#" class="btnDelete btn btn-danger" onclick="deleteItem">Delete</a>
+                <a href="#" class="btnDelete btn btn-danger" onclick="deleteItem(${i})">Delete</a>
                 </div>
             </div>
             `;
-        })
+        }
 
         document.getElementById("bookslist").innerHTML = output;
+   }
+
+   function deleteItem(index){
+        myLibrary.splice(index, 1)
+        localStorage["book-library-data"] = JSON.stringify(myLibrary)
+        render()
    }
 
    function clearInput(){
