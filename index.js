@@ -20,6 +20,7 @@ Book.prototype.info = function(){
 }
 
 document.getElementById("submit").addEventListener("click", addBookToLibrary)
+document.getElementById("new-book").addEventListener("click", newBookForm)
 document.addEventListener("DOMContentLoaded", render);
 function addBookToLibrary() {
 
@@ -36,7 +37,7 @@ function addBookToLibrary() {
         clearInput()
    }
 
-   function render(event){
+   function render(){
        let output;
        for(let i = 0; i < myLibrary.length; i++ ){
             output += `
@@ -54,7 +55,6 @@ function addBookToLibrary() {
         }
 
         document.getElementById("bookslist").innerHTML = output;
-        event.preventDefault();
    }
 
    function deleteItem(index){
@@ -80,4 +80,10 @@ function addBookToLibrary() {
      document.getElementById("book-title").value = " "
      document.getElementById("book-author").value = " "
      document.getElementById("book-pages").value = " "
+   }
+
+   const modal = document.getElementById("books-form")
+   
+   function newBookForm(){
+        modal.classList.toggle('toggle-two');
    }

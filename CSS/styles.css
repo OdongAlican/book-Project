@@ -42,3 +42,7 @@ h3 {
     width: 40px;
     margin-right: 10px;
 }
+
+.toggle-two {
+    display: none;
+}
