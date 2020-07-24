@@ -59,7 +59,7 @@ function addBookToLibrary() {
 
    function deleteItem(index){
         myLibrary.splice(index, 1)
-        localStorage["book-library-data"] = JSON.stringify(myLibrary)
+        updatesDB()
         render()
    }
 
@@ -67,11 +67,11 @@ function addBookToLibrary() {
     let book = myLibrary[index]
         if(book.read == "No"){
             book.read = "Yes"
-            localStorage["book-library-data"] = JSON.stringify(myLibrary)
+            updatesDB()
             render()
         }else if(book.read == "Yes"){
             book.read = "No"
-            localStorage["book-library-data"] = JSON.stringify(myLibrary)
+            updatesDB()
             render()
         }
    }
@@ -86,4 +86,8 @@ function addBookToLibrary() {
    
    function newBookForm(){
         modal.classList.toggle('toggle-two');
+   }
+
+   function updatesDB(){
+    return localStorage["book-library-data"] = JSON.stringify(myLibrary)
    }
