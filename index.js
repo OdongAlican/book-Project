@@ -38,10 +38,10 @@ function addBookToLibrary() {
    }
 
    function render(){
-       let output;
-       for(let i = 0; i < myLibrary.length; i++ ){
+       let output = "";
+       for(let i = 0; i < myLibrary.length; i++){
             output += `
-            <div class="card ml-3 mb-3" style="width: 18rem;">
+            <div class="card ml-3 mb-3">
                 <div class="card-body">
                 <h5 class="card-title">Title: ${myLibrary[i].title}</h5>
                 <p class="card-text">Author: ${myLibrary[i].author}</p>
