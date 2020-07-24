@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.containe {
+    margin: auto;
+    background-color: #666;
+    width: 30%;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.containe div {
+    margin-bottom: 10px;
+}
+
+input {
+    height: 25px;
+    display: flex;
+}
+
+button {
+    background-color: #4FA845;
+    border: none;
+    height: 30px;
+    width: 100px;
+    color: white;
+    cursor: pointer;
+}
+
+h3 {
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.read-options {
+    display: flex
+}
+
+.read-options div {
+    width: 40px;
+    margin-right: 10px;
+}
