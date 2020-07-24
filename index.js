@@ -36,7 +36,7 @@ function addBookToLibrary() {
         clearInput()
    }
 
-   function render(){
+   function render(event){
        let output;
        for(let i = 0; i < myLibrary.length; i++ ){
             output += `
@@ -45,9 +45,8 @@ function addBookToLibrary() {
                 <h5 class="card-title">Title: ${myLibrary[i].title}</h5>
                 <p class="card-text">Author: ${myLibrary[i].author}</p>
                 <p class="card-text">Pages: ${myLibrary[i].pages}</p>
-                <p class="card-text">Read: ${myLibrary[i].read}</p>
-                <p class="card-text">Index: ${i}</p>
-                <a href="#" class="btnEdit btn btn-secondary" data-id="">Edit</a>
+                <p class="card-text">Already Read: ${myLibrary[i].read}</p>
+                <a href="#" class="btnEdit btn btn-secondary" onclick="updateRead(${i})">Change Status</a>
                 <a href="#" class="btnDelete btn btn-danger" onclick="deleteItem(${i})">Delete</a>
                 </div>
             </div>
@@ -55,12 +54,26 @@ function addBookToLibrary() {
         }
 
         document.getElementById("bookslist").innerHTML = output;
+        event.preventDefault();
    }
 
    function deleteItem(index){
         myLibrary.splice(index, 1)
         localStorage["book-library-data"] = JSON.stringify(myLibrary)
         render()
+   }
+
+   function updateRead(index){
+    let book = myLibrary[index]
+        if(book.read == "No"){
+            book.read = "Yes"
+            localStorage["book-library-data"] = JSON.stringify(myLibrary)
+            render()
+        }else if(book.read == "Yes"){
+            book.read = "No"
+            localStorage["book-library-data"] = JSON.stringify(myLibrary)
+            render()
+        }
    }
 
    function clearInput(){
