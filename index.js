@@ -29,12 +29,14 @@ function addBookToLibrary() {
     const pages = document.getElementById("book-pages").value;
     const read = document.querySelector('input[name="read"]:checked').value;
   
-    let book = new Book(title, author, pages, read)
+    if(title && author && pages && read){
+        let book = new Book(title, author, pages, read)
         myLibrary.push(book)
-    
+
         saveData(myLibrary);
         render()
         clearInput()
+    }
    }
 
    function render(){
@@ -46,7 +48,7 @@ function addBookToLibrary() {
                 <h5 class="card-title">Title: ${myLibrary[i].title}</h5>
                 <p class="card-text">Author: ${myLibrary[i].author}</p>
                 <p class="card-text">Pages: ${myLibrary[i].pages}</p>
-                <p class="card-text">Already Read: ${myLibrary[i].read}</p>
+                <p class="card-text">Read Status: ${myLibrary[i].read}</p>
                 <a href="#" class="btnEdit btn btn-secondary" onclick="updateRead(${i})">Change Status</a>
                 <a href="#" class="btnDelete btn btn-danger" onclick="deleteItem(${i})">Delete</a>
                 </div>

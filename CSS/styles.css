@@ -3,10 +3,29 @@
     padding: 0;
 }
 
+.major {
+    display: flex;
+    padding: 20px;
+}
+
+.main {
+    height: 600px;
+    flex: 1;
+}
+
+.card {
+    height: 250px;
+}
+
+#bookslist {
+    flex: 5;
+    height: 600px;
+    overflow-y: auto;
+}
 .containe {
     margin: auto;
     background-color: #666;
-    width: 30%;
+    width: 100%;
     padding: 20px;
     margin-top: 30px;
 }
@@ -21,11 +40,6 @@ input {
 }
 
 button {
-    background-color: #4FA845;
-    border: none;
-    height: 30px;
-    width: 100px;
-    color: white;
     cursor: pointer;
 }
 

@@ -9,8 +9,9 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+    <div class="major">
     <div class="main">
-        <button id="new-book">New Book</button>
+        <button id="new-book" class="btn btn-primary">New Book</button>
         <div class="containe toggle-two" id="books-form">
             <h3>Add Book Title</h3>
             <div class="title">
@@ -45,14 +46,15 @@
                 </div>
             </div>
             <div class="submit-button">
-                <button id="submit">
-                    Submit
+                <button id="submit" class="btn btn-success">
+                    Add Book
                 </button>
             </div>
         </div>
-        <div id="bookslist" class="d-flex col-md-10 row" >
-        </div>
     </div>
+    <div id="bookslist" class="d-flex col-md-10 row" >
+    </div>
+</div>
 </body>
 <script src="index.js"></script>
 </html>
